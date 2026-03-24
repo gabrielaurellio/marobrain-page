@@ -31,15 +31,13 @@
   <link rel="stylesheet" href="assets/styles.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="assets/styles.css"></noscript>
 
-  <!-- Font Awesome — ícones dos cards (igual ao original) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     /* ═══════════════════════════════════════════════════
        MAROBRAIN CARD DESIGN — replicado do marobrain.com
     ═══════════════════════════════════════════════════ */
 
-    /* ── Utilitários Font Awesome (sem Bootstrap) ── */
+    /* ── Utilitários ── */
     .text-success { color: #28a745 !important; }
     .text-warning { color: #ffc107 !important; }
     .text-white   { color: #fff    !important; }
@@ -47,7 +45,15 @@
     .fw-bold      { font-weight: 700 !important; }
     .mb-0         { margin-bottom: 0 !important; }
     .mb-3         { margin-bottom: 1rem !important; }
-    .me-2         { margin-right: .5rem !important; }
+
+    /* ── Ícone check-circle inline (substitui Font Awesome) ── */
+    .icon-chk {
+      width: 1em; height: 1em;
+      vertical-align: -.125em;
+      display: inline-block;
+      margin-right: .5rem;
+      flex-shrink: 0;
+    }
 
     /* ── Grid ── */
     .pricing-row {
@@ -270,6 +276,10 @@
   <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self';">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 
+  <!-- Preconnect para imagens externas -->
+  <link rel="preconnect" href="https://marobrain.com">
+  <link rel="dns-prefetch" href="https://marobrain.com">
+
   <!-- Script Anti-Cookie Stuffing -->
   <script>
   (function() {
@@ -448,8 +458,8 @@
       <img src="assets/img/ADV-PORTAIS.webp"
            class="img_adv"
            alt="As seen on CBS, ABC, FOX, CNN and more"
-           width="500" height="auto"
-           loading="lazy" decoding="async">
+           width="750" height="123"
+           fetchpriority="high" decoding="async">
     </div>
 
     <!-- ══════════════════════════════════════════════
@@ -506,12 +516,12 @@
                   </div>
                   <div class="maro-savings">
                     <p style="font-weight:700;color:#298f16;" class="mb-0">
-                      <i class="fas fa-check-circle me-2"></i> YOU SAVE $180!
+                      <svg class="icon-chk" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> YOU SAVE $180!
                     </p>
                   </div>
                   <div class="maro-feature">
                     <p class="mb-0">
-                      <i class="fas fa-check-circle text-success me-2"></i> 60 DAYS GUARANTEE
+                      <svg class="icon-chk text-success" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> 60 DAYS GUARANTEE
                     </p>
                   </div>
                   <a href="https://buygoods.com/secure/checkout.html?aff_id=1118&account_id=11498&product_codename=mar2fnn2&redirect=aHR0cHM6Ly9tYXJvYnJhaW4uY29tL2ZubjIvdXAxLTFlMmIv"
@@ -550,17 +560,17 @@
                   </div>
                   <div class="maro-savings" style="border-color:rgba(255,255,255,.2)!important;">
                     <p class="mb-0" style="color:#fff!important;font-weight:700;">
-                      <i class="fas fa-check-circle text-warning me-2"></i><b style="color:#fff!important;">YOU SAVE $1488!</b>
+                      <svg class="icon-chk text-warning" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><b style="color:#fff!important;">YOU SAVE $1488!</b>
                     </p>
                   </div>
                   <div class="maro-feature" style="border-color:rgba(255,255,255,.2)!important;">
                     <p class="mb-0" style="color:#fff!important;">
-                      <i class="fas fa-check-circle text-warning me-2"></i> BIGGEST DISCOUNT
+                      <svg class="icon-chk text-warning" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> BIGGEST DISCOUNT
                     </p>
                   </div>
                   <div class="maro-feature" style="border-color:rgba(255,255,255,.2)!important;">
                     <p class="mb-0" style="color:#fff!important;">
-                      <i class="fas fa-check-circle text-warning me-2"></i> 60 DAYS GUARANTEE
+                      <svg class="icon-chk text-warning" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> 60 DAYS GUARANTEE
                     </p>
                   </div>
                   <a href="https://buygoods.com/secure/checkout.html?aff_id=1118&account_id=11498&product_codename=mar6fnn2&redirect=aHR0cHM6Ly9tYXJvYnJhaW4uY29tL2ZubjIvdXAxLTZiLw=="
@@ -601,12 +611,12 @@
                   </div>
                   <div class="maro-savings">
                     <p style="font-weight:700;color:#298f16;" class="mb-0">
-                      <i class="fas fa-check-circle me-2"></i> YOU SAVE $321!
+                      <svg class="icon-chk" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> YOU SAVE $321!
                     </p>
                   </div>
                   <div class="maro-feature">
                     <p class="mb-0">
-                      <i class="fas fa-check-circle text-success me-2"></i> 60 DAYS GUARANTEE
+                      <svg class="icon-chk text-success" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> 60 DAYS GUARANTEE
                     </p>
                   </div>
                   <a href="https://buygoods.com/secure/checkout.html?aff_id=1118&account_id=11498&product_codename=mar3fnn2&redirect=aHR0cHM6Ly9tYXJvYnJhaW4uY29tL2ZubjIvdXAxLTNiLw=="
@@ -638,7 +648,7 @@
       <div class="comments-container">
 
         <div class="comment" data-id="1">
-          <img decoding="async" class="user-avatar" src="assets/img/avatar1.png" alt="Samantha Anderson" width="48" height="48">
+          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar1.png" alt="Samantha Anderson" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Samantha Anderson</p>
@@ -652,7 +662,7 @@
         </div>
 
         <div class="comment answer" data-id="2">
-          <img decoding="async" class="user-avatar" src="assets/img/avatar2.webp" alt="Tommy Thompson" width="48" height="48">
+          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar2.webp" alt="Tommy Thompson" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Tommy Thompson</p>
@@ -666,7 +676,7 @@
         </div>
 
         <div class="comment answer" data-id="3">
-          <img decoding="async" class="user-avatar" src="assets/img/avatar3.png" alt="Jennifer Davis" width="48" height="48">
+          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar3.png" alt="Jennifer Davis" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Jennifer Davis</p>
@@ -680,7 +690,7 @@
         </div>
 
         <div class="comment" data-id="4">
-          <img decoding="async" class="user-avatar" src="assets/img/avatar4.webp" alt="Cora Martinez" width="48" height="48">
+          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar4.webp" alt="Cora Martinez" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Cora Martinez</p>
@@ -694,7 +704,7 @@
         </div>
 
         <div class="comment" data-id="5">
-          <img decoding="async" class="user-avatar" src="assets/img/avatar5.png" alt="Emily Johnson" width="48" height="48">
+          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar5.png" alt="Emily Johnson" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Emily Johnson</p>
@@ -708,7 +718,7 @@
         </div>
 
         <div class="comment" data-id="6">
-          <img decoding="async" class="user-avatar" src="assets/img/avatar6.png" alt="Lauren Brown" width="48" height="48">
+          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar6.png" alt="Lauren Brown" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Lauren Brown</p>
