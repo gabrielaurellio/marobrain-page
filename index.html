@@ -343,12 +343,20 @@
 
     function preventIframeCookieStuffing() {}
 
+    // Domínios de checkout — NUNCA remover params de afiliado deles
+    var checkoutDomains = ['buygoods.com', 'mycartpanda.com', 'digistore24.com', 'clickbank.com'];
+
     function sanitizeLinks() {
       document.addEventListener('click', function(e) {
         var link = e.target.closest('a');
         if (link && link.href) {
           try {
             var url = new URL(link.href);
+            // Protege links de checkout — não remove nada
+            var isCheckout = checkoutDomains.some(function(d) {
+              return url.hostname.indexOf(d) !== -1;
+            });
+            if (isCheckout) return;
             var suspiciousParams = ['aff_id', 'affiliate', 'partner_id', 'afiliado_id'];
             var modified = false;
             suspiciousParams.forEach(function(param) {
