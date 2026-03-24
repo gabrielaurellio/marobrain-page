@@ -1,0 +1,826 @@
+/* ================================================================
+   styles.css — Memopezil Rebuild
+   Fiel ao design original: cores, layout, tipografia
+   Mobile-first | Zero tracking | Zero frameworks
+   ================================================================ */
+
+/* ---- CSS Variables (exatas do original) ---- */
+:root {
+  --primary-color: #4F2677;
+  --primary-color-dark: #541437;
+  --secondary-color: #dfc3ef;
+  --text-color: #231F20;
+  --light-pink: #fcf7ff;
+  --green-check: #3ae008;
+  --yellow-light-bg: #fffde7;
+  --yellow-dotted-border: #fdd835;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'Open Sans', system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+img, video { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+/* ================================================================
+   HEADER — vermelho com HEALTH + ícone
+   ================================================================ */
+.red-header {
+  background-color: #a70c0c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.red-header h1 {
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.red-header img {
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 996px) {
+  .red-header h1 { font-size: 1.7rem; }
+}
+
+/* ================================================================
+   MARQUEE — ticker rolando topo (dark red)
+   ================================================================ */
+.marquee-wrap {
+  background-color: #810505;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 4px 0;
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: marqueeScroll 110s linear infinite;
+}
+
+.marquee-track span {
+  display: inline-block;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 11px;
+  padding-right: 2rem;
+}
+
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ================================================================
+   LAYOUT UTILITÁRIOS
+   ================================================================ */
+.mg-auto {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5px 12px 15px;
+  text-align: center;
+}
+
+/* ================================================================
+   META DA NOTÍCIA (By Bill Gates / data)
+   ================================================================ */
+.txt_info_noticia {
+  text-align: left;
+  color: #54595F;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.txt_info_noticia b {
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ================================================================
+   VSL PLACEHOLDER
+   ================================================================ */
+.video_vturb {
+  padding-top: 15px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.vsl-placeholder {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.vsl-placeholder p  { font-size: 18px; font-weight: 600; }
+.vsl-placeholder small { font-size: 12px; opacity: .55; }
+
+/* Player real quando inserido */
+.video_vturb iframe,
+.video_vturb vturb-smartplayer,
+.video_vturb video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
+/* ================================================================
+   IMAGEM DE MÍDIA (CBS, ABC, FOX, CNN…)
+   ================================================================ */
+.img_adv {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  margin: 20px auto 0;
+}
+
+@media (max-width: 996px) {
+  .img_adv {
+    width: 90%;
+    max-width: 380px;
+    height: auto;
+  }
+}
+
+/* ================================================================
+   TICKER VERMELHO — "Last bottles left"
+   ================================================================ */
+.stock-ticker {
+  background-color: #D41212;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 8px 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 12px 0 0;
+}
+
+.ticker-track {
+  display: inline-flex;
+  animation: tickerScroll 30s linear infinite;
+}
+
+.ticker-track strong {
+  display: inline-block;
+  padding-right: 3rem;
+}
+
+.counter_left {
+  display: inline-block;
+  font-weight: 900;
+}
+
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ================================================================
+   PRODUTOS — cards de oferta
+   ================================================================ */
+.products {
+  position: relative;
+  margin-top: 1.5rem;
+  max-width: 100%;
+  padding: 0 12px;
+}
+
+/* Bootstrap-like grid (sem a lib) */
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -8px;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 8px;
+}
+
+@media (min-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
+.align-items-stretch { align-items: center; }
+.mb-3 { margin-bottom: 1rem; }
+
+/* ---- Item (card) base ---- */
+.products .item {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  text-align: center;
+  color: var(--text-color);
+  background-color: #fff;
+  border-radius: 1em;
+  overflow: hidden;
+  border: 2px solid var(--secondary-color);
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+  transition: transform .2s;
+}
+
+.products .item:hover { transform: scale(1.015); }
+
+.products .item .wrapper {
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* ---- Item header (label: BEST VALUE / Most Popular / Basic) ---- */
+.products .item .item-header {
+  padding: 0.35em 0.5em;
+  background-color: var(--secondary-color);
+  font-weight: 800;
+  font-size: 1.05em;
+}
+
+/* ---- Promo (featured = 6 bottles) ---- */
+.products .item.promo {
+  border: 2px solid var(--primary-color);
+}
+
+.products .item.promo .wrapper {
+  background-color: var(--light-pink);
+}
+
+.products .item.promo .item-header {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 1.15em;
+}
+
+/* ---- Item sides (image | info) ---- */
+.item-sides {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5em;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+@media (max-width: 767px) {
+  .item-sides { flex-direction: row; align-items: flex-start; }
+}
+
+/* ---- Item image column ---- */
+.item-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .item-img { width: 45%; flex-shrink: 0; }
+}
+
+.item-img .supply {
+  text-align: center;
+  line-height: 1;
+  padding: 0.5em 0.25em;
+}
+
+.item-img .supply b {
+  display: block;
+  font-size: 1.5em;
+}
+
+@media (max-width: 767px) {
+  .item-img .supply b { font-size: 1.1em; }
+  .item-img .supply   { padding: 0; font-size: 0.9em; }
+}
+
+.item-img img {
+  max-height: 200px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .item-img img       { height: 120px; max-height: 150px; width: auto; max-width: 100%; }
+  .item.promo .item-img img { height: 140px; }
+}
+
+.item-img p {
+  font-size: 0.85em;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ---- Item right column (price / features / button) ---- */
+.item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+/* ---- Price ---- */
+/* Preço por pote — secundário ao /day, cor escura */
+.price {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  justify-content: center;
+  line-height: 1;
+  color: var(--text-color);
+}
+
+.price b {
+  font-size: 1.6em;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .price b { font-size: 1.4em; }
+}
+
+.price sup { font-size: 0.55em; vertical-align: top; margin-top: 0.3em; }
+
+.price span {
+  font-weight: 600;
+  font-size: 0.72em;
+  text-align: left;
+  line-height: 1.2;
+  color: #555;
+}
+
+/* ---- Features list ---- */
+.features-list {
+  width: 100%;
+  padding: 0 4px;
+  text-align: center;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.78em;
+  background-color: var(--yellow-light-bg);
+  border: 2px dotted var(--yellow-dotted-border);
+  border-radius: 8px;
+  padding: 5px 8px;
+  margin-bottom: 6px;
+  color: var(--text-color);
+}
+
+@media (max-width: 767px) {
+  .features-list li { font-size: 0.62em; padding: 4px 6px; }
+}
+
+.checkmark {
+  color: var(--green-check);
+  font-weight: 700;
+  font-size: 1.1em;
+  flex-shrink: 0;
+}
+
+/* ---- CTA Buttons ---- */
+.cta {
+  display: block;
+  width: 95%;
+  margin: 8px auto 0;
+  font-family: 'Roboto', system-ui, sans-serif;
+  font-weight: 700;
+  background-image: linear-gradient(180deg, #01b319 0%, #04960d 100%);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1.1em;
+  border-radius: 7px;
+  padding: 10px 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Item-buy fora do item-right — ocupa largura total do card */
+.item-buy {
+  width: 100%;
+  padding: 6px 10px 8px;
+}
+
+.item-buy .cta {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .cta { font-size: 1.2rem; }
+}
+
+.cta:hover { color: #000; }
+
+/* Pulsing (botão destaque do 6-pack) */
+.cta-pulse {
+  animation: pulsar 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulsar {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* Ícone cursor no botão principal */
+.cursor-icon {
+  position: absolute;
+  right: 10px;
+  bottom: -14px;
+  font-size: 1.6em;
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(-30deg); }
+  50%       { transform: translateY(-8px) rotate(-30deg); }
+}
+
+/* ---- Payment flags ---- */
+.card-flags {
+  max-width: 200px;
+  margin: 4px auto 0;
+}
+
+@media (max-width: 767px) {
+  .card-flags { display: none; }
+}
+
+/* ---- Totals ---- */
+.item-totals {
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: 4px;
+}
+
+@media (max-width: 767px) {
+  .item-totals { font-size: 0.95em; }
+}
+
+.totals {
+  font-size: 0.72em;
+  font-weight: 500;
+}
+
+.totals s {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 2px;
+  color: #888;
+}
+
+.totals b { font-weight: 800; }
+
+.shipping {
+  font-weight: 800;
+  color: var(--primary-color);
+  font-size: 0.9em;
+}
+
+/* ---- Supply days & per-day label ---- */
+.supply-days {
+  font-size: 0.8em;
+  font-weight: 700;
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  border-radius: 100px;
+  padding: 2px 10px;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.supply-rec {
+  font-size: 0.78em;
+  color: var(--primary-color-dark);
+  font-weight: 600;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Valor diário — DESTAQUE PRINCIPAL de preço */
+.per-day {
+  font-size: 2.4em;
+  font-weight: 900;
+  color: var(--primary-color);
+  margin: 4px 0 2px;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.per-day small {
+  font-size: 0.42em;
+  font-weight: 700;
+  color: var(--primary-color);
+  opacity: 0.7;
+  letter-spacing: 0;
+}
+
+
+/* SURPRISE badge — destaque visual exclusivo do 6-pack */
+.surprise-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b00, #ff9500);
+  color: #fff;
+  font-weight: 900;
+  font-size: 1em;
+  padding: 5px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 8px rgba(255, 107, 0, 0.45);
+  animation: surprisePulse 1.8s ease-in-out infinite alternate;
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+
+@keyframes surprisePulse {
+  0%   { transform: scale(1);    box-shadow: 0 2px 8px rgba(255,107,0,.45); }
+  100% { transform: scale(1.07); box-shadow: 0 4px 14px rgba(255,107,0,.7); }
+}
+
+/* ---- Most Popular card — mesma cor do Basic (neutro) ---- */
+.products .item.popular {
+  border: 2px solid var(--secondary-color);
+}
+
+.item-header--popular {
+  background-color: var(--secondary-color) !important;
+  color: var(--text-color) !important;
+  padding: 0 !important;
+}
+
+.ribbon-popular {
+  display: block;
+  width: 100%;
+  padding: 0.35em 0.5em;
+  background-color: var(--secondary-color);
+  font-weight: 800;
+  font-size: 1.05em;
+  color: var(--text-color);
+}
+
+/* ---- Shipping paid (non-free) ---- */
+.shipping--paid {
+  color: #888 !important;
+  font-weight: 600 !important;
+  font-size: 0.85em;
+}
+
+/* ================================================================
+   COMENTÁRIOS FACEBOOK
+   ================================================================ */
+#fb-comments {
+  font-family: "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  width: 100%;
+  margin: 24px auto 0;
+}
+
+#fb-comments .fb-heading {
+  margin: 2.125em 0 0.625em;
+  font-size: 1.1em;
+  color: #555;
+  font-weight: 400;
+  text-align: left;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  border: 1px solid #e9ebee;
+  border-radius: 1.25em;
+  padding: 1.25em 1.25em 0;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+  gap: 0.625em;
+}
+
+.comment.answer {
+  margin-left: 3.625em;
+  max-width: calc(100% - 3.625em);
+  margin-bottom: 0.75em;
+}
+
+.comment.answer + .answer {
+  margin-top: -0.75em;
+}
+
+.user-avatar {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.comment-data { width: 100%; }
+
+.comment-data .user {
+  display: inline-block;
+  font-weight: 400;
+  color: #050505;
+  border-radius: 0.75em;
+  background-color: #f0f2f5;
+  padding: 0.375em 0.75em 0.75em;
+  max-width: 100%;
+}
+
+.comment-data .user .name {
+  display: block;
+  margin: 0;
+  color: #365899;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.comment-data .user .text {
+  margin: 0;
+  font-size: 14px;
+  color: #050505;
+  text-align: left;
+  line-height: 1.45;
+}
+
+.comment-data .buttons {
+  margin: 0.125em 0 0 0.75em;
+  display: flex;
+  align-items: center;
+  gap: 0.3125em;
+}
+
+.comment-data .buttons time,
+.comment-data .buttons like,
+.comment-data .buttons answer,
+.comment-data .buttons span {
+  font-size: 0.8em;
+  color: #888;
+  user-select: none;
+}
+
+.comment-data .buttons like,
+.comment-data .buttons answer {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.comment-data .buttons like:hover { color: #365899; }
+
+/* Tooltip no Reply */
+.comment-data .buttons answer {
+  cursor: default;
+  position: relative;
+}
+
+.comment-data .buttons answer:hover::after {
+  content: "You cannot comment on this post";
+  position: absolute;
+  left: 50%;
+  top: -0.625em;
+  width: 11.25em;
+  background-color: #f0f2f5;
+  color: #4c4c4c;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+  border-radius: 0.25em;
+  padding: 0.375em;
+  text-align: center;
+  font-weight: 400;
+  box-shadow: 2px 2px 8px 2px rgba(0,0,0,.18);
+}
+
+/* Badge de likes */
+.comment likes {
+  position: absolute;
+  bottom: -0.625em;
+  right: 0;
+  background-color: #fff;
+  border: 2px solid #eaebef;
+  display: flex;
+  align-items: center;
+  font-size: 0.875em;
+  line-height: 1;
+  color: #888;
+  border-radius: 100px;
+  padding: 2px 6px 2px 4px;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.comment likes::before {
+  content: "👍";
+  font-size: 0.9em;
+}
+
+@media (min-width: 576px) {
+  #fb-comments { font-size: 16px; }
+  .comment likes { bottom: 0; }
+}
+
+.comments-closed {
+  font-size: 0.875em;
+  font-weight: 600;
+  text-align: center;
+  margin: 0.9375em 0 5px;
+  color: #555;
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+footer {
+  background-color: #A70C0C;
+  padding: 15px 0 0;
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 25px;
+  font-weight: 500;
+}
+
+footer h3 {
+  background-color: #000;
+  color: #fff;
+  font-size: 17px;
+  padding: 10px 25px;
+  margin-top: 10px;
+}
+
+/* ================================================================
+   REDUCED MOTION
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .ticker-track,
+  .cta-pulse,
+  .cursor-icon { animation: none !important; }
+}
