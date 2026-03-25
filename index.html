@@ -27,14 +27,46 @@
     .vsl-placeholder small{font-size:12px;opacity:.55}
   </style>
 
-  <!-- CSS completo — carregado de forma não-bloqueante -->
-  <link rel="stylesheet" href="assets/styles.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="assets/styles.css"></noscript>
-
-  <!-- Preload LCP image (6 bottles — best value, exibida primeiro no mobile) -->
-  <link rel="preload" as="image" href="assets/img/6b.webp">
+  <!-- Preload LCP image -->
+  <link rel="preload" as="image" href="assets/img/ADV-PORTAIS.webp">
   <link rel="preconnect" href="https://buygoods.com">
   <link rel="dns-prefetch" href="https://buygoods.com">
+
+  <!-- CSS completo inline — zero CSS externo, zero CLS, zero reflow -->
+  <style>
+    .img_adv{width:80%;max-width:500px;height:auto;margin:20px auto 0}
+    @media(max-width:996px){.red-header h1{font-size:1.7rem}.img_adv{width:90%;max-width:380px}}
+    .stock-ticker{background-color:#D41212;color:#fff;overflow:hidden;white-space:nowrap;padding:8px 0;font-size:1.4rem;font-weight:700;text-transform:uppercase;text-align:center;margin:12px 0 0}
+    .ticker-track{display:inline-flex;animation:tickerScroll 30s linear infinite}
+    .ticker-track strong{display:inline-block;padding-right:3rem}
+    .counter_left{display:inline-block;font-weight:900}
+    @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    #fb-comments{font-family:"Segoe UI Historic","Segoe UI",Helvetica,Arial,sans-serif;font-size:13px;width:100%;margin:24px auto 0}
+    #fb-comments .fb-heading{margin:2.125em 0 .625em;font-size:1.1em;color:#555;font-weight:400;text-align:left}
+    .comments-container{display:flex;flex-direction:column;gap:1.25em;border:1px solid #e9ebee;border-radius:1.25em;padding:1.25em 1.25em 0}
+    .comment{display:flex;align-items:flex-start;position:relative;width:100%;gap:.625em}
+    .comment.answer{margin-left:3.625em;max-width:calc(100% - 3.625em);margin-bottom:.75em}
+    .comment.answer+.answer{margin-top:-.75em}
+    .user-avatar{width:3em;height:3em;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .comment-data{width:100%}
+    .comment-data .user{display:inline-block;font-weight:400;color:#050505;border-radius:.75em;background-color:#f0f2f5;padding:.375em .75em .75em;max-width:100%}
+    .comment-data .user .name{display:block;margin:0;color:#365899;font-weight:700;font-size:14px;cursor:pointer;text-align:left}
+    .comment-data .user .text{margin:0;font-size:14px;color:#050505;text-align:left;line-height:1.45}
+    .comment-data .buttons{margin:.125em 0 0 .75em;display:flex;align-items:center;gap:.3125em}
+    .comment-data .buttons time,.comment-data .buttons like,.comment-data .buttons answer,.comment-data .buttons span{font-size:.8em;color:#888;user-select:none}
+    .comment-data .buttons like,.comment-data .buttons answer{font-weight:600;cursor:pointer}
+    .comment-data .buttons like:hover{color:#365899}
+    .comment-data .buttons answer{cursor:default;position:relative}
+    .comment-data .buttons answer:hover::after{content:"You cannot comment on this post";position:absolute;left:50%;top:-.625em;width:11.25em;background-color:#f0f2f5;color:#4c4c4c;transform:translate(-50%,-100%);z-index:10;border-radius:.25em;padding:.375em;text-align:center;font-weight:400;box-shadow:2px 2px 8px 2px rgba(0,0,0,.18)}
+    .comment likes{position:absolute;bottom:-.625em;right:0;background-color:#fff;border:2px solid #eaebef;display:flex;align-items:center;font-size:.875em;line-height:1;color:#888;border-radius:100px;padding:2px 6px 2px 4px;gap:2px;white-space:nowrap}
+    .comment likes::before{content:"👍";font-size:.9em}
+    @media(min-width:576px){#fb-comments{font-size:16px}.comment likes{bottom:0}}
+    .comments-closed{font-size:.875em;font-weight:600;text-align:center;margin:.9375em 0 5px;color:#555}
+    footer{background-color:#A70C0C;padding:15px 0 0;text-align:center}
+    footer a{color:#fff;text-decoration:none;display:inline-block;padding:10px 25px;font-weight:500}
+    footer p{background-color:#000;color:#fff;font-size:17px;padding:10px 25px;margin-top:10px}
+    @media(prefers-reduced-motion:reduce){.ticker-track{animation:none!important}}
+  </style>
 
   <style>
     /* ═══════════════════════════════════════════════════
@@ -345,7 +377,7 @@
            class="img_adv"
            alt="As seen on CBS, ABC, FOX, CNN and more"
            width="750" height="123"
-           loading="lazy" decoding="async">
+           fetchpriority="high" decoding="async">
     </div>
 
     <!-- ══════════════════════════════════════════════
@@ -396,7 +428,7 @@
                 </div>
                 <div class="maro-inner">
                   <img src="assets/img/2b.webp"
-                       class="maro-img mb-3" alt="2 Bottles" loading="lazy" decoding="async" width="300" height="225">
+                       class="maro-img mb-3" alt="2 Bottles" loading="lazy" decoding="async" width="530" height="398">
                   <div class="maro-price">
                     <p class="price-val mb-0">$89<span class="per-bottle">PER<br>BOTTLE</span></p>
                   </div>
@@ -440,7 +472,7 @@
                   <h3 class="mb-0" style="color:#fff!important;font-size:1.6em;font-weight:800;">6 BOTTLES</h3>
                   <p class="mb-0" style="color:#fff!important;font-size:1em;font-weight:600;">180 DAYS SUPPLY</p>
                   <img src="assets/img/6b.webp"
-                       class="maro-img mb-3" alt="6 Bottles" fetchpriority="high" decoding="async" width="300" height="225">
+                       class="maro-img mb-3" alt="6 Bottles" fetchpriority="high" decoding="async" width="530" height="398">
                   <div class="maro-price">
                     <p class="price-val mb-0" style="color:#fff!important;">$49<span class="per-bottle" style="color:#fff!important;">PER<br>BOTTLE</span></p>
                   </div>
@@ -491,7 +523,7 @@
                 </div>
                 <div class="maro-inner">
                   <img src="assets/img/3b.webp"
-                       class="maro-img mb-3" alt="3 Bottles" loading="lazy" decoding="async" width="300" height="225">
+                       class="maro-img mb-3" alt="3 Bottles" loading="lazy" decoding="async" width="530" height="398">
                   <div class="maro-price">
                     <p class="price-val mb-0">$72<span class="per-bottle">PER<br>BOTTLE</span></p>
                   </div>
