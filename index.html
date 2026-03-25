@@ -27,8 +27,14 @@
     .vsl-placeholder small{font-size:12px;opacity:.55}
   </style>
 
+  <!-- CSS completo — carregado de forma não-bloqueante -->
+  <link rel="stylesheet" href="assets/styles.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="assets/styles.css"></noscript>
 
-
+  <!-- Preload LCP image (6 bottles — best value, exibida primeiro no mobile) -->
+  <link rel="preload" as="image" href="assets/img/6b.webp">
+  <link rel="preconnect" href="https://buygoods.com">
+  <link rel="dns-prefetch" href="https://buygoods.com">
 
   <style>
     /* ═══════════════════════════════════════════════════
@@ -43,15 +49,9 @@
     .fw-bold      { font-weight: 700 !important; }
     .mb-0         { margin-bottom: 0 !important; }
     .mb-3         { margin-bottom: 1rem !important; }
-
-    /* ── Ícone check-circle inline (substitui Font Awesome) ── */
-    .icon-chk {
-      width: 1em; height: 1em;
-      vertical-align: -.125em;
-      display: inline-block;
-      margin-right: .5rem;
-      flex-shrink: 0;
-    }
+    .me-2         { margin-right: .5rem !important; }
+    /* ── SVG ícone check-circle inline ── */
+    .icon-check { display:inline-block; width:1em; height:1em; vertical-align:-.125em; }
 
     /* ── Grid ── */
     .pricing-row {
@@ -100,7 +100,7 @@
       padding: 12px 16px;
       text-align: center;
     }
-    .maro-header h4 {
+    .maro-header h2 {
       color: #fff;
       margin: 0;
       font-size: 1.5em;
@@ -158,7 +158,7 @@
       margin: 15px 0;
       text-align: center;
     }
-    .maro-price h1 {
+    .maro-price .price-val {
       font-size: 4.5rem;
       font-weight: 700;
       margin: 0;
@@ -266,53 +266,13 @@
       .col-popular { order: 2; }
       .col-basic   { order: 3; }
 
-      .maro-price h1 { font-size: 2.8rem; }
+      .maro-price .price-val { font-size: 2.8rem; }
     }
-    @media(max-width:996px){.red-header h1{font-size:1.7rem}}
-    .video_vturb iframe,.video_vturb vturb-smartplayer,.video_vturb video{width:100%;aspect-ratio:16/9;border:0;display:block}
-    .img_adv{width:80%;max-width:500px;height:auto;margin:20px auto 0}
-    @media(max-width:996px){.img_adv{width:90%;max-width:380px}}
-    .stock-ticker{background-color:#D41212;color:#fff;overflow:hidden;white-space:nowrap;padding:8px 0;font-size:1.4rem;font-weight:700;text-transform:uppercase;text-align:center;margin:12px 0 0}
-    .ticker-track{display:inline-flex;animation:tickerScroll 30s linear infinite}
-    .ticker-track strong{display:inline-block;padding-right:3rem}
-    .counter_left{display:inline-block;font-weight:900}
-    @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    #fb-comments{font-family:"Segoe UI Historic","Segoe UI",Helvetica,Arial,sans-serif;font-size:13px;width:100%;margin:24px auto 0}
-    #fb-comments .fb-heading{margin:2.125em 0 .625em;font-size:1.1em;color:#555;font-weight:400;text-align:left}
-    .comments-container{display:flex;flex-direction:column;gap:1.25em;border:1px solid #e9ebee;border-radius:1.25em;padding:1.25em 1.25em 0}
-    .comment{display:flex;align-items:flex-start;position:relative;width:100%;gap:.625em}
-    .comment.answer{margin-left:3.625em;max-width:calc(100% - 3.625em);margin-bottom:.75em}
-    .comment.answer+.answer{margin-top:-.75em}
-    .user-avatar{width:3em;height:3em;border-radius:50%;object-fit:cover;flex-shrink:0}
-    .comment-data{width:100%}
-    .comment-data .user{display:inline-block;font-weight:400;color:#050505;border-radius:.75em;background-color:#f0f2f5;padding:.375em .75em .75em;max-width:100%}
-    .comment-data .user .name{display:block;margin:0;color:#365899;font-weight:700;font-size:14px;cursor:pointer;text-align:left}
-    .comment-data .user .text{margin:0;font-size:14px;color:#050505;text-align:left;line-height:1.45}
-    .comment-data .buttons{margin:.125em 0 0 .75em;display:flex;align-items:center;gap:.3125em}
-    .comment-data .buttons time,.comment-data .buttons like,.comment-data .buttons answer,.comment-data .buttons span{font-size:.8em;color:#888;user-select:none}
-    .comment-data .buttons like,.comment-data .buttons answer{font-weight:600;cursor:pointer}
-    .comment-data .buttons like:hover{color:#365899}
-    .comment-data .buttons answer{cursor:default;position:relative}
-    .comment-data .buttons answer:hover::after{content:"You cannot comment on this post";position:absolute;left:50%;top:-.625em;width:11.25em;background-color:#f0f2f5;color:#4c4c4c;transform:translate(-50%,-100%);z-index:10;border-radius:.25em;padding:.375em;text-align:center;font-weight:400;box-shadow:2px 2px 8px 2px rgba(0,0,0,.18)}
-    .comment likes{position:absolute;bottom:-.625em;right:0;background-color:#fff;border:2px solid #eaebef;display:flex;align-items:center;font-size:.875em;line-height:1;color:#888;border-radius:100px;padding:2px 6px 2px 4px;gap:2px;white-space:nowrap}
-    .comment likes::before{content:"👍";font-size:.9em}
-    @media(min-width:576px){#fb-comments{font-size:16px}.comment likes{bottom:0}}
-    .comments-closed{font-size:.875em;font-weight:600;text-align:center;margin:.9375em 0 5px;color:#555}
-    footer{background-color:#A70C0C;padding:15px 0 0;text-align:center}
-    footer a{color:#fff;text-decoration:none;display:inline-block;padding:10px 25px;font-weight:500}
-    footer h3{background-color:#000;color:#fff;font-size:17px;padding:10px 25px;margin-top:10px}
-    @media(prefers-reduced-motion:reduce){.ticker-track{animation:none!important}}
   </style>
 
   <!-- Proteção Anti-Iframe -->
   <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self';">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-
-  <!-- Preconnect para imagens externas -->
-  <link rel="preconnect" href="https://marobrain.com">
-  <link rel="dns-prefetch" href="https://marobrain.com">
-  <link rel="preload" as="image" href="https://marobrain.com/dtc-2b/assets/img/6b-2.png">
-
 
 </head>
 <body>
@@ -324,7 +284,7 @@
   ══════════════════════════════════════════════ -->
   <header class="red-header">
     <h1>HEALTH</h1>
-    <img src="assets/img/lista.png" alt="" width="23" height="23" aria-hidden="true">
+    <img src="assets/img/lista.webp" alt="" width="23" height="23" aria-hidden="true">
   </header>
 
   <!-- ══════════════════════════════════════════════
@@ -385,7 +345,7 @@
            class="img_adv"
            alt="As seen on CBS, ABC, FOX, CNN and more"
            width="750" height="123"
-           fetchpriority="high" decoding="async">
+           loading="lazy" decoding="async">
     </div>
 
     <!-- ══════════════════════════════════════════════
@@ -426,7 +386,7 @@
             <div class="pricing-card">
 
               <div class="maro-header" style="background-color:#37298c;">
-                <h4>Basic</h4>
+                <h2>Basic</h2>
               </div>
 
               <div class="maro-body">
@@ -435,26 +395,26 @@
                   <p class="mb-0">60 DAYS SUPPLY</p>
                 </div>
                 <div class="maro-inner">
-                  <img src="https://marobrain.com/dtc-2b/assets/img/2b-2.png"
-                       class="maro-img mb-3" alt="2 Bottles" loading="lazy" decoding="async" width="300" height="380">
+                  <img src="assets/img/2b.webp"
+                       class="maro-img mb-3" alt="2 Bottles" loading="lazy" decoding="async" width="300" height="225">
                   <div class="maro-price">
-                    <h1 class="mb-0">$89<span class="per-bottle">PER<br>BOTTLE</span></h1>
+                    <p class="price-val mb-0">$89<span class="per-bottle">PER<br>BOTTLE</span></p>
                   </div>
                   <div class="maro-savings">
                     <p style="font-weight:700;color:#298f16;" class="mb-0">
-                      <svg class="icon-chk" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> YOU SAVE $180!
+                      <svg class="icon-check me-2" viewBox="0 0 512 512" aria-hidden="true"><path fill="#298f16" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> YOU SAVE $180!
                     </p>
                   </div>
                   <div class="maro-feature">
                     <p class="mb-0">
-                      <svg class="icon-chk text-success" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> 60 DAYS GUARANTEE
+                      <svg class="icon-check me-2" viewBox="0 0 512 512" aria-hidden="true"><path fill="#28a745" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> 60 DAYS GUARANTEE
                     </p>
                   </div>
                   <a href="https://buygoods.com/secure/checkout.html?aff_id=1118&account_id=11498&product_codename=mar2fnn2&redirect=aHR0cHM6Ly9tYXJvYnJhaW4uY29tL2ZubjIvdXAxLTFlMmIv"
                      class="btn-buy btn-buy-yellow" rel="noopener">BUY NOW</a>
                   <div class="mb-3">
-                    <img src="https://marobrain.com/dtc-2b/assets/img/cards_0326.png" class="maro-cards"
-                         alt="Visa Mastercard Amex PayPal" loading="lazy" decoding="async" width="1271" height="225">
+                    <img src="assets/img/cards.webp" class="maro-cards"
+                         alt="Visa Mastercard Amex PayPal" loading="lazy" decoding="async" width="200" height="35">
                   </div>
                   <div class="maro-total">
                     <p class="mb-1">Total: <span style="text-decoration:line-through;color:#888;">$358</span> <span class="fw-bold">$178</span></p>
@@ -472,38 +432,38 @@
             <div class="pricing-card">
 
               <div class="maro-header" style="background-color:#050027;">
-                <h4>BEST VALUE!</h4>
+                <h2>BEST VALUE!</h2>
               </div>
 
               <div class="maro-body best-value-body">
                 <div class="maro-inner">
                   <h3 class="mb-0" style="color:#fff!important;font-size:1.6em;font-weight:800;">6 BOTTLES</h3>
                   <p class="mb-0" style="color:#fff!important;font-size:1em;font-weight:600;">180 DAYS SUPPLY</p>
-                  <img src="https://marobrain.com/dtc-2b/assets/img/6b-2.png"
-                       class="maro-img mb-3" alt="6 Bottles" fetchpriority="high" decoding="async" width="300" height="380">
+                  <img src="assets/img/6b.webp"
+                       class="maro-img mb-3" alt="6 Bottles" fetchpriority="high" decoding="async" width="300" height="225">
                   <div class="maro-price">
-                    <h1 class="mb-0" style="color:#fff!important;">$49<span class="per-bottle" style="color:#fff!important;">PER<br>BOTTLE</span></h1>
+                    <p class="price-val mb-0" style="color:#fff!important;">$49<span class="per-bottle" style="color:#fff!important;">PER<br>BOTTLE</span></p>
                   </div>
                   <div class="maro-savings" style="border-color:rgba(255,255,255,.2)!important;">
                     <p class="mb-0" style="color:#fff!important;font-weight:700;">
-                      <svg class="icon-chk text-warning" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><b style="color:#fff!important;">YOU SAVE $1488!</b>
+                      <svg class="icon-check me-2" viewBox="0 0 512 512" aria-hidden="true"><path fill="#ffc107" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><b style="color:#fff!important;">YOU SAVE $1488!</b>
                     </p>
                   </div>
                   <div class="maro-feature" style="border-color:rgba(255,255,255,.2)!important;">
                     <p class="mb-0" style="color:#fff!important;">
-                      <svg class="icon-chk text-warning" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> BIGGEST DISCOUNT
+                      <svg class="icon-check me-2" viewBox="0 0 512 512" aria-hidden="true"><path fill="#ffc107" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> BIGGEST DISCOUNT
                     </p>
                   </div>
                   <div class="maro-feature" style="border-color:rgba(255,255,255,.2)!important;">
                     <p class="mb-0" style="color:#fff!important;">
-                      <svg class="icon-chk text-warning" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> 60 DAYS GUARANTEE
+                      <svg class="icon-check me-2" viewBox="0 0 512 512" aria-hidden="true"><path fill="#ffc107" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> 60 DAYS GUARANTEE
                     </p>
                   </div>
                   <a href="https://buygoods.com/secure/checkout.html?aff_id=1118&account_id=11498&product_codename=mar6fnn2&redirect=aHR0cHM6Ly9tYXJvYnJhaW4uY29tL2ZubjIvdXAxLTZiLw=="
                      class="btn-buy btn-buy-yellow" rel="noopener">BUY NOW</a>
                   <div class="mb-3">
-                    <img src="https://marobrain.com/dtc-2b/assets/img/cards_0326.png" class="maro-cards"
-                         alt="Visa Mastercard Amex PayPal" loading="lazy" decoding="async" width="1271" height="225">
+                    <img src="assets/img/cards.webp" class="maro-cards"
+                         alt="Visa Mastercard Amex PayPal" loading="lazy" decoding="async" width="200" height="35">
                   </div>
                   <div class="maro-total">
                     <p class="mb-1" style="color:#fff!important;">Total: <span style="text-decoration:line-through;color:rgba(255,255,255,.5)!important;">$1782</span> <span style="font-weight:700;color:#fff!important;">$294</span></p>
@@ -521,7 +481,7 @@
             <div class="pricing-card">
 
               <div class="maro-header" style="background-color:#37298c;">
-                <h4>Most Popular</h4>
+                <h2>Most Popular</h2>
               </div>
 
               <div class="maro-body">
@@ -530,26 +490,26 @@
                   <p class="mb-0">90 DAYS SUPPLY</p>
                 </div>
                 <div class="maro-inner">
-                  <img src="https://marobrain.com/dtc-2b/assets/img/3b-2.png"
-                       class="maro-img mb-3" alt="3 Bottles" loading="lazy" decoding="async" width="300" height="380">
+                  <img src="assets/img/3b.webp"
+                       class="maro-img mb-3" alt="3 Bottles" loading="lazy" decoding="async" width="300" height="225">
                   <div class="maro-price">
-                    <h1 class="mb-0">$72<span class="per-bottle">PER<br>BOTTLE</span></h1>
+                    <p class="price-val mb-0">$72<span class="per-bottle">PER<br>BOTTLE</span></p>
                   </div>
                   <div class="maro-savings">
                     <p style="font-weight:700;color:#298f16;" class="mb-0">
-                      <svg class="icon-chk" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> YOU SAVE $321!
+                      <svg class="icon-check me-2" viewBox="0 0 512 512" aria-hidden="true"><path fill="#298f16" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> YOU SAVE $321!
                     </p>
                   </div>
                   <div class="maro-feature">
                     <p class="mb-0">
-                      <svg class="icon-chk text-success" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> 60 DAYS GUARANTEE
+                      <svg class="icon-check me-2" viewBox="0 0 512 512" aria-hidden="true"><path fill="#28a745" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> 60 DAYS GUARANTEE
                     </p>
                   </div>
                   <a href="https://buygoods.com/secure/checkout.html?aff_id=1118&account_id=11498&product_codename=mar3fnn2&redirect=aHR0cHM6Ly9tYXJvYnJhaW4uY29tL2ZubjIvdXAxLTNiLw=="
                      class="btn-buy btn-buy-yellow" rel="noopener">BUY NOW</a>
                   <div class="mb-3">
-                    <img src="https://marobrain.com/dtc-2b/assets/img/cards_0326.png" class="maro-cards"
-                         alt="Visa Mastercard Amex PayPal" loading="lazy" decoding="async" width="1271" height="225">
+                    <img src="assets/img/cards.webp" class="maro-cards"
+                         alt="Visa Mastercard Amex PayPal" loading="lazy" decoding="async" width="200" height="35">
                   </div>
                   <div class="maro-total">
                     <p class="mb-1">Total: <span style="text-decoration:line-through;color:#888;">$537</span> <span class="fw-bold">$216</span></p>
@@ -574,7 +534,7 @@
       <div class="comments-container">
 
         <div class="comment" data-id="1">
-          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar1.webp" alt="Samantha Anderson" width="48" height="48">
+          <img decoding="async" class="user-avatar" src="assets/img/avatar1.webp" alt="Samantha Anderson" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Samantha Anderson</p>
@@ -588,7 +548,7 @@
         </div>
 
         <div class="comment answer" data-id="2">
-          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar2.webp" alt="Tommy Thompson" width="48" height="48">
+          <img decoding="async" class="user-avatar" src="assets/img/avatar2.webp" alt="Tommy Thompson" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Tommy Thompson</p>
@@ -602,7 +562,7 @@
         </div>
 
         <div class="comment answer" data-id="3">
-          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar3.webp" alt="Jennifer Davis" width="48" height="48">
+          <img decoding="async" class="user-avatar" src="assets/img/avatar3.webp" alt="Jennifer Davis" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Jennifer Davis</p>
@@ -616,7 +576,7 @@
         </div>
 
         <div class="comment" data-id="4">
-          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar4.webp" alt="Cora Martinez" width="48" height="48">
+          <img decoding="async" class="user-avatar" src="assets/img/avatar4.webp" alt="Cora Martinez" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Cora Martinez</p>
@@ -630,7 +590,7 @@
         </div>
 
         <div class="comment" data-id="5">
-          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar5.webp" alt="Emily Johnson" width="48" height="48">
+          <img decoding="async" class="user-avatar" src="assets/img/avatar5.webp" alt="Emily Johnson" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Emily Johnson</p>
@@ -644,7 +604,7 @@
         </div>
 
         <div class="comment" data-id="6">
-          <img loading="lazy" decoding="async" class="user-avatar" src="assets/img/avatar6.webp" alt="Lauren Brown" width="48" height="48">
+          <img decoding="async" class="user-avatar" src="assets/img/avatar6.webp" alt="Lauren Brown" width="48" height="48">
           <div class="comment-data">
             <div class="user">
               <p class="name">Lauren Brown</p>
@@ -657,7 +617,7 @@
           <likes>10</likes>
         </div>
 
-        <h4 class="comments-closed">This post is no longer receiving comments!</h4>
+        <p class="comments-closed">This post is no longer receiving comments!</p>
       </div>
     </div>
 
@@ -669,127 +629,118 @@
   <footer>
     <a href="privacy.html" class="privacidade">Privacy Policy</a><br><br>
     <a href="terms.html" class="termos">Terms of Use</a><br><br>
-    <h3>2026. All rights reserved.</h3>
+    <p>2026. All rights reserved.</p>
   </footer>
 
 </main>
 
+<script src="assets/main.js" defer></script>
+
 <!-- Script Anti-Cookie Stuffing -->
 <script>
-  (function() {
-    'use strict';
+(function() {
+  'use strict';
 
-    var config = {
-      affiliateParam: 'afid',
-      cookieName: 'affiliate_id',
-      cookieDuration: 400,
-      priority: 'last-click'
-    };
+  var config = {
+    affiliateParam: 'afid',
+    cookieName: 'affiliate_id',
+    cookieDuration: 400,
+    priority: 'last-click'
+  };
 
-    function getAffiliateId() {
-      var urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(config.affiliateParam);
+  function getAffiliateId() {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(config.affiliateParam);
+  }
+
+  function setAffiliateCookie(affiliateId) {
+    var expiryDate = new Date();
+    expiryDate.setDate(expiryDate.getDate() + config.cookieDuration);
+    document.cookie = config.cookieName + '=' + affiliateId +
+      '; expires=' + expiryDate.toUTCString() +
+      '; path=/; SameSite=Lax; Secure';
+  }
+
+  function getExistingCookie() {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+      var parts = cookies[i].trim().split('=');
+      if (parts[0] === config.cookieName) return parts[1];
     }
+    return null;
+  }
 
-    function setAffiliateCookie(affiliateId) {
-      var expiryDate = new Date();
-      expiryDate.setDate(expiryDate.getDate() + config.cookieDuration);
-      document.cookie = config.cookieName + '=' + affiliateId +
-        '; expires=' + expiryDate.toUTCString() +
-        '; path=/; SameSite=Lax; Secure';
-    }
-
-    function getExistingCookie() {
-      var cookies = document.cookie.split(';');
-      for (var i = 0; i < cookies.length; i++) {
-        var parts = cookies[i].trim().split('=');
-        if (parts[0] === config.cookieName) return parts[1];
-      }
-      return null;
-    }
-
-    function clearSuspiciousCookies() {
-      var cookies = document.cookie.split(';');
-      var keywords = ['aff', 'ref', 'partner', 'afiliado', 'parceiro', 'afid'];
-      cookies.forEach(function(cookie) {
-        var name = cookie.trim().split('=')[0];
-        var suspicious = keywords.some(function(k) {
-          return name.toLowerCase().indexOf(k) !== -1;
-        });
-        if (name !== config.cookieName && suspicious) {
-          document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        }
+  function clearSuspiciousCookies() {
+    var cookies = document.cookie.split(';');
+    var keywords = ['aff', 'ref', 'partner', 'afiliado', 'parceiro', 'afid'];
+    cookies.forEach(function(cookie) {
+      var name = cookie.trim().split('=')[0];
+      var suspicious = keywords.some(function(k) {
+        return name.toLowerCase().indexOf(k) !== -1;
       });
-    }
+      if (name !== config.cookieName && suspicious) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      }
+    });
+  }
 
-    function blockCookieStuffing() {
-      clearSuspiciousCookies();
-      var affiliateId = getAffiliateId();
-      var existingCookie = getExistingCookie();
-      if (affiliateId) {
-        if (config.priority === 'first-click' && existingCookie) {
-          // mantém o primeiro clique
-        } else {
-          setAffiliateCookie(affiliateId);
-        }
+  function blockCookieStuffing() {
+    clearSuspiciousCookies();
+    var affiliateId = getAffiliateId();
+    var existingCookie = getExistingCookie();
+    if (affiliateId) {
+      if (config.priority === 'first-click' && existingCookie) {
+        // mantém o primeiro clique
+      } else {
+        setAffiliateCookie(affiliateId);
       }
     }
+  }
 
-    function preventIframeCookieStuffing() {}
+  function preventIframeCookieStuffing() {}
 
-    // Domínios de checkout — NUNCA remover params de afiliado deles
-    var checkoutDomains = ['buygoods.com', 'mycartpanda.com', 'digistore24.com', 'clickbank.com'];
+  var checkoutDomains = ['buygoods.com', 'mycartpanda.com', 'digistore24.com', 'clickbank.com'];
 
-    function sanitizeLinks() {
-      document.addEventListener('click', function(e) {
-        var link = e.target.closest('a');
-        if (link && link.href) {
-          try {
-            var url = new URL(link.href);
-            // Protege links de checkout — não remove nada
-            var isCheckout = checkoutDomains.some(function(d) {
-              return url.hostname.indexOf(d) !== -1;
-            });
-            if (isCheckout) return;
-            var suspiciousParams = ['aff_id', 'affiliate', 'partner_id', 'afiliado_id'];
-            var modified = false;
-            suspiciousParams.forEach(function(param) {
-              if (url.searchParams.has(param) &&
-                  url.searchParams.get(param) !== getExistingCookie()) {
-                url.searchParams.delete(param);
-                modified = true;
-              }
-            });
-            if (modified) link.href = url.toString();
-          } catch(err) {}
-        }
-      });
-    }
+  function sanitizeLinks() {
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a');
+      if (link && link.href) {
+        try {
+          var url = new URL(link.href);
+          var isCheckout = checkoutDomains.some(function(d) {
+            return url.hostname.indexOf(d) !== -1;
+          });
+          if (isCheckout) return;
+          var suspiciousParams = ['aff_id', 'affiliate', 'partner_id', 'afiliado_id'];
+          var modified = false;
+          suspiciousParams.forEach(function(param) {
+            if (url.searchParams.has(param) &&
+                url.searchParams.get(param) !== getExistingCookie()) {
+              url.searchParams.delete(param);
+              modified = true;
+            }
+          });
+          if (modified) link.href = url.toString();
+        } catch(err) {}
+      }
+    });
+  }
 
-    function monitorCookieChanges() {
-      var lastCookie = document.cookie;
-      setInterval(function() {
-        if (document.cookie !== lastCookie) {
-          blockCookieStuffing();
-          lastCookie = document.cookie;
-        }
-      }, 2000);
-    }
+  function monitorCookieChanges() {
+    var lastCookie = document.cookie;
+    setInterval(function() {
+      if (document.cookie !== lastCookie) {
+        blockCookieStuffing();
+        lastCookie = document.cookie;
+      }
+    }, 2000);
+  }
 
-    function init() {
-      blockCookieStuffing();
-      preventIframeCookieStuffing();
-      sanitizeLinks();
-      monitorCookieChanges();
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-  })();
+  blockCookieStuffing();
+  preventIframeCookieStuffing();
+  sanitizeLinks();
+  monitorCookieChanges();
+})();
 </script>
-<script src="assets/main.js" defer></script>
 </body>
 </html>
