@@ -22,8 +22,8 @@
     .txt_info_noticia{text-align:left;color:#54595F;font-size:12px;padding-top:10px}
     .txt_info_noticia b{color:#000;font-size:13px;font-weight:700}
     .video_vturb{padding-top:15px;width:100%;max-width:800px}
-    .vturb-wrap{width:100%;min-height:min(56.25vw,450px);}
-    vturb-smartplayer{display:block;width:100%;}
+    .vturb-wrap{width:100%;height:min(56.25vw,450px);overflow:hidden;}
+    vturb-smartplayer{display:block;width:100%;height:100%;}
   </style>
 
   <!-- Preload LCP image -->
@@ -781,7 +781,5 @@
   sanitizeLinks();
   monitorCookieChanges();
 })();
-</script>
-<script>(function(){var w=document.querySelector('.vturb-wrap'),p=document.querySelector('vturb-smartplayer');if(!w||!p||!window.ResizeObserver)return;new ResizeObserver(function(e){var h=e[0].contentRect.height;if(h>0)w.style.minHeight=h+'px';}).observe(p);})();</script>
-</body>
+</script></body>
 </html>
