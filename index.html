@@ -774,6 +774,21 @@
   monitorCookieChanges();
 })();
 </script>
-<script>setTimeout(function(){document.getElementById('stockTicker').style.display='';document.getElementById('products').style.display='';},1988000);</script>
+<script>
+(function(){
+  var PITCH_MS = 1988000;
+  var KEY = 'vsl_start';
+  var now = Date.now();
+  var start = parseInt(localStorage.getItem(KEY), 10);
+  if (!start) { localStorage.setItem(KEY, now); start = now; }
+  var elapsed = now - start;
+  var remaining = PITCH_MS - elapsed;
+  function reveal(){
+    document.getElementById('stockTicker').style.display='';
+    document.getElementById('products').style.display='';
+  }
+  if (remaining <= 0) { reveal(); } else { setTimeout(reveal, remaining); }
+})();
+</script>
 </body>
 </html>
