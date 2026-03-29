@@ -383,7 +383,7 @@
     <!-- ══════════════════════════════════════════════
          TICKER VERMELHO — "Last bottles left"
     ══════════════════════════════════════════════ -->
-    <section class="stock-ticker" id="stockTicker" aria-live="polite">
+    <section class="stock-ticker" id="stockTicker" aria-live="polite" style="display:none">
       <div class="ticker-track">
         <strong>
           <span>Last bottles left: <span class="counter_left">43</span></span>&nbsp;&nbsp;&nbsp;
@@ -403,7 +403,7 @@
          Desktop: Basic → Best Value → Most Popular
          Mobile:  Best Value → Most Popular → Basic
     ══════════════════════════════════════════════ -->
-    <section class="products2" id="products" style="max-width:960px;margin:1.5rem auto 0;padding:0 12px;">
+    <section class="products2" id="products" style="display:none;max-width:960px;margin:1.5rem auto 0;padding:0 12px;">
       <div style="max-width:960px;margin:0 auto;">
 
         <!-- Rating — visível APENAS no mobile (estilo Vigor Long) -->
@@ -774,5 +774,6 @@
   monitorCookieChanges();
 })();
 </script>
+<script>setTimeout(function(){document.getElementById('stockTicker').style.display='';document.getElementById('products').style.display='';},1988000);</script>
 </body>
 </html>
