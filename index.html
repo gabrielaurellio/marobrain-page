@@ -22,7 +22,8 @@
     .txt_info_noticia{text-align:left;color:#54595F;font-size:12px;padding-top:10px}
     .txt_info_noticia b{color:#000;font-size:13px;font-weight:700}
     .video_vturb{padding-top:15px;width:100%;max-width:800px}
-    vturb-smartplayer{aspect-ratio:16/9;display:block;width:100%;}
+    .vturb-wrap{position:relative;padding-top:56.25%;width:100%;overflow:hidden;}
+    .vturb-wrap vturb-smartplayer{position:absolute;top:0;left:0;width:100%;height:100%;display:block;}
   </style>
 
   <!-- Preload LCP image -->
@@ -41,7 +42,7 @@
 
   <!-- CSS completo inline — zero CSS externo, zero CLS, zero reflow -->
   <style>
-    .img_adv{width:80%;max-width:500px;height:auto;margin:20px auto 0}
+    .img_adv{width:80%;max-width:500px;height:auto;margin:20px auto 0;aspect-ratio:750/123;}
     @media(max-width:996px){.red-header h1{font-size:1.7rem}.img_adv{width:90%;max-width:380px}}
     .stock-ticker{background-color:#D41212;color:#fff;overflow:hidden;white-space:nowrap;padding:8px 0;font-size:1.4rem;font-weight:700;text-transform:uppercase;text-align:center;margin:12px 0 0}
     .ticker-track{display:inline-flex;animation:tickerScroll 30s linear infinite}
@@ -368,7 +369,9 @@
         ║    <section class="products2 esconder" id="products">       ║
         ╚══════════════════════════════════════════════════════════════╝
       -->
-      <vturb-smartplayer id="vid-69c87895c602028f65bf4574" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
+      <div class="vturb-wrap">
+      <vturb-smartplayer id="vid-69c87895c602028f65bf4574"></vturb-smartplayer>
+      </div>
       <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/c1941ea7-b030-4180-b1f0-5a9a49fb1f05/players/69c87895c602028f65bf4574/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
       <script>
       var player=document.querySelector('vturb-smartplayer');
